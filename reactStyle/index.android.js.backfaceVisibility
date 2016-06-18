@@ -1,0 +1,65 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ */
+
+import React, { Component } from 'react';
+import {
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    ListView,
+    Image,
+    NativeModules,
+    WebView
+} from 'react-native';
+
+class hellowReact extends Component {
+    constructor(props) {
+        super(props);
+    }   
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={[styles.rotateBlock, styles.back1]}>
+                    <Text>Hello</Text>
+                </View>
+                <View style={[styles.rotateBlock, styles.back2]}>
+                    <Text>Hello</Text>
+                </View>
+                <View style={[styles.rotateBlock, styles.back3]}>
+                    <Text>Hello</Text>
+                </View>
+            </View>
+        );  
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        backgroundColor: '#fff',
+    },  
+    rotateBlock: {
+        marginTop: 50,
+        height: 100,
+        width: 100,
+        backgroundColor: '#0f0',
+    },
+    back1: {
+        transform: [{rotateY: '135deg'}],
+        backfaceVisibility: 'visible'
+    },
+    back2: {
+        backfaceVisibility: 'hidden',
+        transform: [{rotateY: '180deg'}],
+    },
+    back3: {
+        backfaceVisibility: 'hidden',
+        transform: [{rotateY: '360deg'}],
+    },
+});
+
+AppRegistry.registerComponent('hellowReact', () => hellowReact);
